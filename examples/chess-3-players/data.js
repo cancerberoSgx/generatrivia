@@ -1,0 +1,116 @@
+var _pieceSize = "7%,7%";
+triviadata={
+    baseUrl: "../../src/",
+    gameName: "a chess",
+	
+	boardImage: "../chess/imgs/3-players-board1.png",
+	boardSize: "640,640",
+	helpHtml: "help.html",
+	
+	categories: [], 
+
+	pieces: [
+         {name: "black-tower", code: "image('../chess/imgs/black-tower.png', 10, 10, 74, 74)"},
+         {name: "black-knight", code: "image('../chess/imgs/black-knight.png', 10, 10, 74, 74)"},
+         {name: "black-bishop", code: "image('../chess/imgs/black-bishop.png', 10, 10, 74, 74)"},
+         {name: "black-queen", code: "image('../chess/imgs/black-queen.png', 10, 10, 74, 74)"},
+         {name: "black-king", code: "image('../chess/imgs/black-king.png', 10, 10, 74, 74)"},
+         {name: "black-pawn", code: "image('../chess/imgs/black-pawn.png', 10, 10, 74, 74)"},
+         
+         {name: "white-tower", code: "image('../chess/imgs/white-tower.png', 10, 10, 74, 74)"},
+         {name: "white-knight", code: "image('../chess/imgs/white-knight.png', 10, 10, 74, 74)"},
+         {name: "white-bishop", code: "image('../chess/imgs/white-bishop.png', 10, 10, 74, 74)"},
+         {name: "white-queen", code: "image('../chess/imgs/white-queen.png', 10, 10, 74, 74)"},
+         {name: "white-king", code: "image('../chess/imgs/white-king.png', 10, 10, 74, 74)"},
+         {name: "white-pawn", code: "image('../chess/imgs/white-pawn.png', 10, 10, 74, 74)"},
+         
+		{name: "red-tower", code: "image('../chess/imgs/red-tower.png', 10, 10, 74, 74)"},
+		{name: "red-knight", code: "image('../chess/imgs/red-knight.png', 10, 10, 74, 74)"},
+		{name: "red-bishop", code: "image('../chess/imgs/red-bishop.png', 10, 10, 74, 74)"},
+		{name: "red-queen", code: "image('../chess/imgs/red-queen.png', 10, 10, 74, 74)"},
+		{name: "red-king", code: "image('../chess/imgs/red-king.png', 10, 10, 74, 74)"},
+		{name: "red-pawn", code: "image('../chess/imgs/red-pawn.png', 10, 10, 74, 74)"},
+	],
+	
+	
+//	addPieces: [
+//        {name: "black-tower", position: "70%,4%", size: _pieceSize},
+//        {name: "black-knight", position: "72%,11%", size: _pieceSize},
+//	    {name: "black-bishop", position: "76%,18%", size: _pieceSize},
+//	    {name: "black-queen", position: "78%,24%", size: _pieceSize}, 	
+//	    {name: "black-king", position: "81%,31%", size: _pieceSize},
+//	    {name: "black-bishop", position: "85%,37%", size: _pieceSize},
+//	    {name: "black-knight", position: "89%,42%", size: _pieceSize},
+//	    {name: "black-tower", position: "92%,48%", size: _pieceSize},
+//	    
+//	    {name: "black-pawn", position: "1%,12%", size: _pieceSize},
+//	    
+//	    {name: "white-tower", position: "2%,87%", size: _pieceSize},
+//        {name: "white-knight", position: "12%,87%", size: _pieceSize},
+//	    {name: "white-bishop", position: "25%,87%", size: _pieceSize},
+//	    {name: "white-queen", position: "37%,87%", size: _pieceSize}, 	
+//	    {name: "white-king", position: "50%,87%", size: _pieceSize},
+//	    {name: "white-bishop", position: "62%,87%", size: _pieceSize},
+//	    {name: "white-knight", position: "75%,87%", size: _pieceSize},
+//	    {name: "white-tower", position: "87%,87%", size: _pieceSize},
+//	    
+//		{name: "white-pawn", position: "1%,75%", size: _pieceSize},
+//	    
+//	],
+
+addPieces : [
+			 {name: "black-tower", position: "91%,45%", size: "6%,6%", color: "black-tower"}, 
+			 {name: "black-tower", position: "68%,1%", size: "6%,6%", color: "black-tower"}, 
+			 {name: "black-knight", position: "87%,38%", size: "6%,6%", color: "black-knight"}, 
+			 {name: "black-knight", position: "71%,8%", size: "6%,6%", color: "black-knight"}, 
+			 {name: "black-bishop", position: "83%,32%", size: "6%,6%", color: "black-bishop"}, 
+			 {name: "black-bishop", position: "73%,14%", size: "6%,6%", color: "black-bishop"}, 
+			 {name: "black-queen", position: "76%,20%", size: "6%,6%", color: "black-queen"}, 
+			 {name: "black-king", position: "80%,27%", size: "6%,6%", color: "black-king"}, 
+			 {name: "black-pawn", position: "87%,51%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "80%,44%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "76%,38%", size: "6%,6%", color: "black-pawn"},
+			 {name: "black-pawn", position: "73%,32%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "69%,25%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "67%,18%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "63%,11%", size: "6%,6%", color: "black-pawn"}, 
+			 {name: "black-pawn", position: "61%,2%", size: "6%,6%", color: "black-pawn"}, 
+			 
+			 {name: "white-tower", position: "1%,44%", size: "6%,6%", color: "white-tower"},
+			 {name: "white-tower", position: "23%,1%", size: "6%,6%", color: "white-tower"},
+			 {name: "white-knight", position: "5%,39%", size: "6%,6%", color: "white-knight"}, 
+			 {name: "white-knight", position: "20%,8%", size: "6%,6%", color: "white-knight"},
+			 {name: "white-bishop", position: "9%,32%", size: "6%,6%", color: "white-bishop"}, 
+			 {name: "white-bishop", position: "17%,15%", size: "6%,6%", color: "white-bishop"}, 
+			 {name: "white-queen", position: "14%,20%", size: "6%,6%", color: "white-queen"}, 
+			 {name: "white-king", position: "10%,26%", size: "6%,6%", color: "white-king"}, 
+			 {name: "white-pawn", position: "4%,50%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "10%,44%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "15%,37%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "19%,31%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "22%,24%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "25%,18%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "29%,10%", size: "6%,6%", color: "white-pawn"}, 
+			 {name: "white-pawn", position: "30%,2%", size: "6%,6%", color: "white-pawn"},  
+
+			{name: "red-tower", position: "68%,88%", size: "6%,6%", color: "red-tower"},
+			{name: "red-tower", position: "23%,88%", size: "6%,6%", color: "red-tower"},
+			{name: "red-knight", position: "62%,87%", size: "6%,6%", color: "red-knight"},
+			{name: "red-knight", position: "30%,87%", size: "6%,6%", color: "red-knight"},
+			{name: "red-bishop", position: "56%,87%", size: "6%,6%", color: "red-bishop"},
+			{name: "red-bishop", position: "36%,87%", size: "6%,6%", color: "red-bishop"},
+			{name: "red-queen", position: "42%,87%", size: "6%,6%", color: "red-queen"},
+			{name: "red-king", position: "49%,87%", size: "6%,6%", color: "red-king"},
+			{name: "red-pawn", position: "70%,81%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "63%,78%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "55%,77%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "48%,77%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "43%,77%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "36%,78%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "28%,79%", size: "6%,6%", color: "red-pawn"},
+			{name: "red-pawn", position: "21%,81%", size: "6%,6%", color: "red-pawn"}],
+	questions: null, 
+	
+	mouseCoordsToolEnabled : true,
+	piecePositionsToolEnabled: true
+}

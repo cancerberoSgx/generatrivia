@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--@author: sgurin -->
+    <head>
+        <meta charset="utf-8">
+        <title>generatrivia: trivia game generator for the web</title>
+        <meta name="author" content="Sebastián Gurin">
+        <meta name="description" content="generatrivia: trivia game generator for the web">
+        <meta name="keywords" content="generatrivia, trivia web generator, trivia javascript framework">
+        <meta name="viewport" content="width=450">
+		<link rel="stylesheet" href="generatrivia.css">
+        <link rel="shortcut icon" href="images/logo16.png" type="image/x-icon">
+        
+        
+             
+        <script src="js/jquery-1.6.4.min.js"></script>        
+        <script src="js/raphael-min.js"></script>
+        
+        <script src="data.js"></script>   
+        <script src="generatrivia.js"></script>
+        <link rel="stylesheet" href="generatrivia.css" type="text/css" />        
+        
+        <!--jquery utiles: colorchooser, panel-->
+        <script type="text/javascript" src="js/jscolor/jscolor.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" />   
+        
+        
+    </head>
+    <body>
+    
+    
+<table class="main-table">
+<tr>
+
+<td width="20%">
+	<button id="dice-button">Roll the dices!</button>
+	<input type=""text" id="dice-value"></input>
+	
+	<br/><br/>
+	<button id="show-questions-button">Show the questions!</button>
+	
+	<br/><br/><br/>
+	<input class="color" type="text" value="select color" id="add-piece-color-selector"></input>
+	<div id="add-piece-piece-selector"></div>
+	<button id="add-piece-button">Add piece</button>
+</td>
+
+
+<td width="80%">
+	<div id="trivia-paper"></div>
+</td>
+
+
+</tr>
+</table>
+
+
+<div id="question-dialog">
+<table id="question-dialog-table">
+</table>
+</div>
+
+
+<div id="language-dialog">
+<p>Choose language: </p>
+
+</div>
+
+<div id="help-dialog">
+</br>
+<button class="translate" translate-inner="help-using-generatrivia"></button>
+<button class="translate" translate-inner="help-using-particular"></button>
+</br>
+</div>
+
+</body>
+</html>

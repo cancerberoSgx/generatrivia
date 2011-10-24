@@ -1,0 +1,10 @@
+.main-table .box {
+	padding: 10px;
+	border: 2px solid #ededed;
+}
+#question-dialog {
+	display: none;
+}
+.main-table {
+table-layout: fixed;
+}

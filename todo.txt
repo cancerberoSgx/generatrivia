@@ -1,0 +1,36 @@
+
+
+TODOS: 
+
+* cambiar el t�tulo de generatrivia a board game maker...
+
+
+* agregar un parametro dimension: a la definic�n de ficha en el q se pueda especificar 
+las medidas de la ficha. (soporta medidas porcentuales: 66.5%,44%. )
+
+* agregar param position: en la prop addPieces: de data.txt, para especificar la 
+posici�n deseada (soporta medidas porcentuales: 66.5%,44%. )
+
+* poder poner im�genes como fichas, aunque sea con raphael as�: 
+image("images/pieces/king.png", 30, 30);
+
+
+* en el di�logo inicial para elegir idioma tambi�n agregar la edici�n
+ completa de todos los parametros de data.txt. 
+
+(estas 4 cosas juntas permitir�n definir tableros complejos como ajedr�s, 
+con medidas iniciales variables (user defined), y que las fichas se ajusten 
+no importando la medida...
+
+
+* agregar una utilidad, opcional "counter", que es un panel como el add-piece, 
+que deja 1) agreagar un counter para un color/nombre jugador 2) editar ese input para 
+por ej, que cada jugador pueda anotar sus puntos.
+
+
+
+ideas:
+
+* se pueden hacer todos los tableros de todos los juegos. ajedr�s, damas, ludo, war. 
+Se pueden generar los tableros de juegos complejos con 
+

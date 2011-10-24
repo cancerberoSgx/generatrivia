@@ -1,0 +1,48 @@
+{
+	"$schema" : "http://json-schema.org/draft-03/schema#",
+   "description":"a generatrivia game definition",
+   "type":"object",
+   "properties":{
+   
+   	"boardImage":{
+         "description":"path to board image",
+         "type":"string"
+     },
+     "boardSize":{
+         "description":"width,height in pixels, comma separated",
+         "type":"string"
+     },
+     "helpHtml":{
+         "description":"path to help html file containing help/documentation about this particular trivia game",
+         "type":"string"
+     },
+     "categories":{
+         "description":"array of categories. props : name, color",
+         "type":"array",         
+         "items":{
+            "type":"object"
+         }         
+     },
+     "pieces":{
+         "description":"array of board piece definitions. props : name, code.",
+         "type":"array",         
+         "items":{
+            "type":"object"
+         }         
+     },
+     "addPieces":{
+         "description":"pieces instances that will be added automatically to the board. props: name, amount, color, position, size",
+         "type":"array",         
+         "items":{
+            "type":"object"
+         }         
+     },
+     "questions":{
+         "description":"questions and answers for a trivia like game. data array. props: question, answer, categoryName",
+         "type":"array",         
+         "items":{
+            "type":"object"
+         }         
+     }
+   }
+}
