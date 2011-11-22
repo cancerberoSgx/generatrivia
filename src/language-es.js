@@ -13,5 +13,6 @@ langUtil.registerLocale("es", {
 	"third-step": "Tercer paso",
 	"color": "Color",
 	"shape": "Ficha",
-	"answer-question": "Contestar la pregunta"
+	"answer-question": "Contestar la pregunta",
+	"size": "Tamaño"
 });

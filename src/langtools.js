@@ -37,7 +37,7 @@ var langUtil = {
 			}
 			key = $(this).attr("translate-value");
 			if(key) {
-				$(this).attr("value", langUtil.getString(localeName, innKey));
+				$(this).attr("value", langUtil.getString(localeName, key));
 			}
 		}); 
 	},

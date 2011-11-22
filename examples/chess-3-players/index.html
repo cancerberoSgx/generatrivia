@@ -34,42 +34,8 @@
 <table class="main-table">
 <tr>
 
-<td width="20%">
-
-	<div class="box" id="add-pieces-tool-main">
-		<h3 class="translate" translate-inner="first-step"></h3>	
-		<p class="translate" translate-inner="add-the-necessary-pieces">Add the necessary pieces:</p>		
-		<span class="translate" translate-inner="color">Color:</span><br/>		
-		<input class="color" type="text" value="select color" class="translate" translate-value="select-color" id="add-piece-color-selector"></input>
-		<br/><br/>
-		<span class="translate" translate-inner="shape">Shape:</span>
-		<div id="add-piece-piece-selector"></div>
-		<br/><br/>
-		<button id="add-piece-button" class="translate" translate-inner="add-piece">Add piece</button>
-	</div>
-	
-	<div class="box">
-		<h3 class="translate" translate-inner="second-step"></h3>	
-		<p class="translate" translate-inner="roll-dices"></p>		
-		<button id="dice-button" class="translate" translate-inner="roll-dices">Roll the dices!</button>
-
-	</div>
-	
-	
-	<div class="box">
-		<h3 class="translate" translate-inner="third-step"></h3>	
-		<p class="translate" translate-inner="answer-question"></p>		
-		<button id="show-questions-button" class="translate" translate-inner="show-questions">Show the questions!</button>
-	</div>
-	
-	
-		<div id="tools-container"><h3>Tools: </h3> 
-	</div>
-	
-	<br/><br/><br/>
-	
+<td width="20%" id="tools-container">	
 </td>
-
 
 <td width="80%">
 	<div id="trivia-paper"></div>
@@ -80,22 +46,12 @@
 </table>
 
 
-<div id="question-dialog">
-<table id="question-dialog-table">
-</table>
-</div>
-
-
-<div id="language-dialog">
-	<p>Language: </p>
-</div>
-
-<div id="help-dialog">
-	</br>
-	<button class="translate" translate-inner="help-using-generatrivia"></button>
-	<button class="translate" translate-inner="help-using-particular"></button>
-	</br>
-</div>
+<script>
+// a
+$(document).ready(function(){
+	gt.initGame();
+});
+</script>
 
 </body>
 </html>

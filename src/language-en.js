@@ -13,5 +13,6 @@ langUtil.registerLocale("en", {
     "thrid-step": "Thrid step",
 	"color": "Color",
 	"shape": "Shape",
-	"answer-question": "Answer question"
+	"answer-question": "Answer question",
+	"size": "Size"
 });

@@ -109,7 +109,7 @@ addPieces : [
 			{name: "red-pawn", position: "36%,78%", size: "6%,6%", color: "red-pawn"},
 			{name: "red-pawn", position: "28%,79%", size: "6%,6%", color: "red-pawn"},
 			{name: "red-pawn", position: "21%,81%", size: "6%,6%", color: "red-pawn"}],
-	questions: null, 
+	questions: [], 
 	
 	mouseCoordsToolEnabled : true,
 	piecePositionsToolEnabled: true

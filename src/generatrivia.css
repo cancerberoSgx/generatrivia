@@ -1,10 +1,17 @@
-.main-table .box {
-	padding: 10px;
+.main-table .tool-container {
+	padding: 6px;
 	border: 2px solid #ededed;
 }
+.main-table .tool-title {
+	margin: 10px 0px 5px 0px;
+}
+
 #question-dialog {
 	display: none;
 }
 .main-table {
 table-layout: fixed;
+}
+.main-table td {
+vertical-align: top;
 }
