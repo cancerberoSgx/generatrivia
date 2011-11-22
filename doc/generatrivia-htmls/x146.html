@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Building custum tools</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="Built in game tools"
+HREF="x123.html"><LINK
+REL="NEXT"
+TITLE="Generatrivia framework api"
+HREF="x157.html"><META
+http-equiv="Content-Type"
+content="text/html; charset=UTF-8"></HEAD
+><BODY
+CLASS="section"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x123.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x157.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN146"
+>Building custum tools</A
+></H1
+>
+  <P
+>In this section we will show you how to build your own custom tools with an example. It is required to know the 
+  basis of javascript and html languages. </P
+>
+  
+  <P
+>A tool consists on the following elements: 1) some user interface like input widgets like buttons, text entries, etc. 
+  that the player uses for controlling the tool. 2) some logic that do something related to the game. 3) some configuration in 
+  data.js for the specific tool</P
+>
+  
+  <P
+>For example, the dices tool, consists on a button and text entry to 
+  controlling the tool (roll dices button and a text for showing the dice result). It has no logic related to the game. 
+  It can be configured using the "dices" property in data.js</P
+>
+  
+  <P
+>We will define an abstract tool</P
+>
+  
+  <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#13;
+/* a cutom tool (plugin) example : mouseCoords */
+gt.tools.mouseCoords = {
+                        
+name: "mouseCoords",
+
+description: "a tool that shows absolute and percentual position "+
+	"of a point in the board on mouse click",
+
+/**this method will be called by the frameowork for loading the tool, 
+ * In this method the tools should create the markup in the
+ * parent, register event listeners, etc. 
+ * the tool shoud *append* a new element to the parrent.
+ *  	
+ * @param parentEl - is a dom object or an id or jquery selector for this 
+ * tool dom parent */		
+init : function(parentEl) {
+	 //create an check box that will be our only tool control. 
+	$(parentEl).append("&#60;input type=\"checkbox\" id=\"mouse-coords-tool-button\"&#62;get click board coords&#60;/input&#62;");
+	//add a mouse click listener in the paper
+	$("#trivia-paper").click(gt.tools.mouseCoords._mouseCoordsMouseHandler);
+},
+
+
+/** this function indicates if this tool shoud be showed according to a game's data. 
+ * This method will be called at least one, so this way the tool can define custom 
+ * game's configuration for indicating if tool should be enabled, or passing other data. */
+isEnabled : function(data) {
+	return data.mouseCoordsToolEnabled;
+},
+/** internal mouse click handler */
+_mouseCoordsMouseHandler : function(e) {
+	//if the checkbox is checked, then show click's  coordinates
+	if($("#mouse-coords-tool-button:checked").size()&#62;0) {
+		var pos = gt.getPositionFromEvent(e), 
+			posPercent = gt.getPointPercent(pos);
+		var s = "Click position in the board:\n"+
+			"absolute: "+pos[0]+","+pos[1]+"\n"+
+			"percentual: "+posPercent[0]+"%,"+posPercent[1]+"%";
+		alert(s);
+	}		
+}	
+		
+};
+  </PRE
+></TD
+></TR
+></TABLE
+>
+  
+  
+  <P
+>&#13;  Generatrivia is made using html, javascript, css and these main javascript libraries: 
+  1) jquery.com for general javascript toolkit, 
+  2) jqueryui.com for general gui, 
+  3) raphaeljs.com for drawing and graphics.
+  
+  </P
+>
+  
+  <P
+>So when developing your own tools, you can use any of these toolkits for accomplish your purposes. </P
+>
+  
+  <DIV
+CLASS="note"
+><BLOCKQUOTE
+CLASS="note"
+><P
+><B
+>Note: </B
+>Generatrivia framework api will be detailed in the following section. </P
+></BLOCKQUOTE
+></DIV
+>
+  </DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x123.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x157.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Built in game tools</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Generatrivia framework api</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

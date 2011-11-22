@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Getting starting</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="x43.html"><LINK
+REL="NEXT"
+TITLE="Built in game tools"
+HREF="x123.html"><META
+http-equiv="Content-Type"
+content="text/html; charset=UTF-8"></HEAD
+><BODY
+CLASS="section"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x43.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x123.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN56"
+>Getting starting</A
+></H1
+>
+  
+  
+  <P
+>No experience with programming languages is required for building your board games using generatrivia. 
+  The user should know show to work with files, directories and editing text files. </P
+>
+  
+  <P
+>In this section, we will learn how to generate some simple game boards like ludo, trivia and chess.  
+  step by step. </P
+>
+  
+  
+  
+  	<DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN60"
+>Making the ludo game</A
+></H2
+>
+  	
+  	<P
+>in this section we will define our first game, the ludo game. Rules of the game can be fount at http://en.wikipedia.org/wiki/Ludo_(board_game). 
+  	The ludo game consist on the following elements: </P
+>
+  	
+  	 <P
+></P
+><UL
+><LI
+><P
+>A board</P
+></LI
+><LI
+><P
+>4 colored circular pieces of colors red, blue, yellow and green</P
+></LI
+><LI
+><P
+>A dice</P
+></LI
+></UL
+>
+	
+	
+	
+	<P
+></P
+><UL
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Prepare files. </B
+>
+	First of all you have to download and decompress generatrivia somewhere. 
+	Your game will be use some of these files.
+	
+	Second, we will prepare your game's directory and files. For this, simply copy generatrivia's src 
+	directory to somewhere. Rename with your game's name, in this case "ludo".  This directory
+	will be where your trivia game will be stored. All following steps will be working in this dir.
+	</P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>The board image. </B
+>
+	Create or copy your game board's 'image from internet. Put in on your game's directory and call it ludoboard1.png. 
+	
+	For our ludo we will use the following image:
+	
+	<DIV
+CLASS="informalfigure"
+><P
+></P
+><A
+NAME="AEN82"
+></A
+>
+	    <DIV
+CLASS="mediaobject"
+><P
+>&#13;	        <IMG
+SRC="../examples/ludo/ludoboard1.png">
+	      </P
+></DIV
+>
+	<P
+></P
+></DIV
+>
+  
+  
+	</P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Define the game in a text file. </B
+>
+	The last and more important step is 
+	to define all of our game's elements in a the game definition text file. For this, first create a file called data.js and open 
+	it with your favourite plain text editor	
+	<A
+NAME="AEN92"
+HREF="#FTN.AEN92"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+>.
+	
+	For our first version of the ludo game, this will be the file contents:
+	
+	<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#13;triviadata={
+    gameName: "the Ludo game",
+	
+	boardImage: "ludoboard1.png",
+	boardSize: "640,640",
+	
+	pieces: [
+         {name: "red piece", code: "circle(10, 10, 10, 10)", 
+        	 size: "20,20", color: "#ff0000"},
+        	 
+         {name: "blue piece", code: "circle(10, 10, 10, 10)", 
+        	 size: "50,20", color: "#0000ff"},
+        	 
+         {name: "green piece", code: "circle(10, 20, 10, 10)", 
+        	 size: "20,20", color: "#00ff00"},
+        	 
+         {name: "green piece", code: "circle(10, 20, 10, 10)", 
+        	 size: "20,20", color: "#00ff00"}  
+    ]
+}
+	</PRE
+></TD
+></TR
+></TABLE
+>  
+	The file contents must be a valid javascript - json object string. 
+	
+	Let's introduce the data.js file and explain what 's inside briefly.
+	
+	First of all the game definition file is defined using the programming language json. 
+	It is recommended but not mandatory that the user is familiarized with it: http://json.org/
+	
+	As you can see, there are some properties defined as gameName, boardImage, 
+	boardSize and pieces. boardGame indicates what this game is called ("ludo"), and boardImage indicated the image file that will be used
+	as game's board ("ludoboard1.png"). 
+	
+	The more complex one is pieces. Remember we said the game ludo
+	 consist in 4 pieces of color red, green, blue and yellow. So the "pieces" property is telling just that. The following 
+	 code defines a single game piece (circular piece of size 20 x 20 pixel and color red-#ff0000): 
+	 
+	 <TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#13;	 {name: "red piece", code: "circle(10, 10, 10, 10)", 
+	  	 size: "20,20", color: "#ff0000"},
+	 </PRE
+></TD
+></TR
+></TABLE
+>
+	
+	</P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Ludo is ready. </B
+>
+	If there are no errors in the data.js file we are ready. Simply open the file index.html with 
+	your web browser and the game will start. and show something like this: 
+	
+	<DIV
+CLASS="informalfigure"
+><P
+></P
+><A
+NAME="AEN106"
+></A
+>
+	    <DIV
+CLASS="mediaobject"
+><P
+>&#13;	        <IMG
+SRC="imgs/ludogame1.png">
+	      </P
+></DIV
+>
+	<P
+></P
+></DIV
+>
+	
+	</P
+></DIV
+></LI
+><LI
+><DIV
+CLASS="formalpara"
+><P
+><B
+>Now let's play. </B
+>	
+	In our ludo game, before playing the players must create the necesary pieces. Asuming 
+	will be 4 players, we create 4 pieces of each colors red, blue, green and yellow and move them in the board
+	to their initial positions. For moving the pieces, just add them and then drag them with the mouse to desired board position. 
+	We perform this using the "Add Piece" tool at the left top corner: 
+	
+	<DIV
+CLASS="informalfigure"
+><P
+></P
+><A
+NAME="AEN116"
+></A
+>
+	    <DIV
+CLASS="mediaobject"
+><P
+>&#13;	        <IMG
+SRC="imgs/ludogame2.png">
+	      </P
+></DIV
+>
+	<P
+></P
+></DIV
+>
+	
+	</P
+></DIV
+>
+	</LI
+></UL
+>
+	
+	
+  	
+  	</DIV
+>
+	
+step 3) If the data is valid, your trivia is ready!! Simply open generatrivia.html in your browser for start playing.
+  </DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN92"
+HREF="x56.html#AEN92"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>In windows, you must use a plain text editor like notepad, and not ms word. Also, in be sure the file 
+	is called data.js and not something like data.js.txt</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x43.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x123.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Built in game tools</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

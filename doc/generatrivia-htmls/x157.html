@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Generatrivia framework api</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="Building custum tools"
+HREF="x146.html"><LINK
+REL="NEXT"
+TITLE="Interesting usage scenarios"
+HREF="x165.html"><META
+http-equiv="Content-Type"
+content="text/html; charset=UTF-8"></HEAD
+><BODY
+CLASS="section"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x146.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x165.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN157"
+>Generatrivia framework api</A
+></H1
+>
+  
+  <P
+>When writing your own generatrivia tools, it is useful to be familiarized with the 
+  api of the framework.  </P
+>
+  
+  
+<DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="AEN160"
+>gt.initGame()</A
+></H2
+>
+<P
+>The main method for creating a game. It must be called from the html document
+for starting the game. If you are writing your own html, 
+make sure all necesary game scripts and css are loaded before starting the game, using jquery ready() function like this: </P
+>
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="programlisting"
+>&#13;&#60;script&#62;
+$(document).ready(function(){
+	gt.initGame();
+});
+&#60;/script&#62;
+</PRE
+></TD
+></TR
+></TABLE
+>
+
+<P
+>gt.initGame() can be called with a configuration object parameter. This object can 
+override game definition configuration in data.js. In fact an entire game definition 
+object can be passed as parameter. It also accepts the property "gameParentElement" that can 
+contains a reference to an html element that will contains the game inside.</P
+>
+</DIV
+>
+  </DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x146.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x165.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Building custum tools</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interesting usage scenarios</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

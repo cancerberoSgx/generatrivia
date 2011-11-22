@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="docbook-xsl/xhtml/docbook.xsl"?> 
+
+<article version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <title>Generatrivia : board games generator</title>
+
+    <author>
+      <personname><firstname>Sebastián</firstname><surname>Gurin</surname></personname>
+
+      <affiliation>
+        <orgname>softpoint</orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>06-17-2010</pubdate>
+  </info>
+  
+  <abstract><para>Generatrivia : board games generator javascript framework for easily define, publish and play, board games like chess, trivias, ludo on he web. </para></abstract>
+   
+  <revhistory>  
+    <revision>
+      <revnumber>0.01</revnumber>
+      <date>20 July 2010</date>
+      <authorinitials>sgurin</authorinitials>
+      <revremark>Initial revision and release with only some sections</revremark>
+    </revision>
+  
+  </revhistory>
+  
+   <section>
+    <title>About this document</title>
+  	<para>This document is available in the following formats:</para>  
+  	<orderedlist>    
+	  <listitem><formalpara><title>pdf</title><para>
+	  <ulink url="../generatrivia.pdf">Generatrivia : board games generator for the web</ulink></para></formalpara></listitem>
+	  
+	  <listitem><formalpara><title>html fragmented</title><para>
+	  <ulink url="../generatrivia-htmls">Generatrivia : board games generator for the web</ulink></para></formalpara></listitem>
+	  
+	  <listitem><formalpara><title>docbook (sources) </title><para>
+	  <ulink url="../generatrivia.xml">Generatrivia : board games generator for the web</ulink></para></formalpara></listitem>
+	  
+	  <listitem><formalpara><title>download htmls</title><para>
+	  <ulink url="../generatrivia-htmls.tgz">Generatrivia : board games generator for the web</ulink></para></formalpara></listitem>
+  
+  	</orderedlist>
+  </section>
+  
+  
+  <section>
+    <title>Introduction</title>
+
+	<para>Generatrivia: define, publish and play your board games in the web.</para>
+	
+	<para>Generatrivia is a html and javascript based application to define and generate boards games like chess, trivia, ludo, and games like that. 
+	It supports tools that game definitions can use, like dices, question and answers, pieces definition and initial positioning, etc.
+	The users who uses generatrivia for defining a game, must define the game in a text file (javascript - json format), indicating the game board image, 
+	defining pieces (image, shape, size, color, name). If the game requires dices, the "dices tool" should be enabled. 
+	If the game require questions and answers like in a trivia, questions answers, categories should have to be defined in that file as well. </para>
+	
+	<para>Once this game definition file is ready, the generatrivia javascript framework can be used for executing the game in a web page easily. </para>
+	
+	<para>In generatrivia generated games, the computer do not control any game logic. The players are responsible moving their pieces and in some 
+	games perhaps creating the pieces too. Also players are responsible	of controlling that others do not cheat while moving them!! 
+	This design has two main advantages:</para>
+	
+	<itemizedlist>
+	<listitem><para>the games are defined by board image and rules outside computing. This gives a lot of flexibility for game definition.</para></listitem>
+	<listitem><para>the computer ony replaces paper and dices, so the game experience is almost like the same as a paper made board.</para></listitem>
+	</itemizedlist>
+	
+	<para>Also, the framework contain a lot of known board game definitions, 
+	like trivias, different kind of chess, checkers, ludo, etc. </para>
+	
+	<para>About the history of the project. The initial idea was to provide teachers with an easy mean of defining trivia games of school subject 
+	so students can play agains each other in a single computer in the classroom. I realice that no game logic programming is required for this, since
+	students are able of counting points and moving their game pieces by theirself. Then I realice that several board games (the ones that do not require cards), 
+	can be sistematically defined for human players only.</para>
+	
+    
+  </section>
+  
+  
+  
+  <section>
+  <title>Getting starting</title>
+  
+  <para>No experience with programming languages is required for building your board games using generatrivia. 
+  The user should know show to work with files, directories and editing text files. </para>
+  
+  <para>In this section, we will learn how to generate some simple game boards like ludo, trivia and chess.  
+  step by step. </para>
+  
+  
+  
+  	<section><title>Making the ludo game</title>
+  	
+  	<para>in this section we will define our first game, the ludo game. Rules of the game can be fount at http://en.wikipedia.org/wiki/Ludo_(board_game). 
+  	The ludo game consist on the following elements: </para>
+  	
+  	 <itemizedlist>
+	
+	<listitem><para>A board</para></listitem>
+	<listitem><para>4 colored circular pieces of colors red, blue, yellow and green</para></listitem>
+	<listitem><para>A dice</para></listitem>
+	
+	<para>So we will define each of these things using generatrivia:</para>
+	</itemizedlist>
+	
+	
+	
+	<itemizedlist>
+	  
+	<listitem><formalpara><title>Prepare files</title>
+	<para>First of all you have to download and decompress generatrivia somewhere. 
+	Your game will be use some of these files.</para>
+	
+	<para>Second, we will prepare your game's directory and files. For this, simply copy generatrivia's src 
+	directory to somewhere. Rename with your game's name, in this case "ludo".  This directory
+	will be where your trivia game will be stored. All following steps will be working in this dir.</para>
+	</formalpara></listitem>
+	
+	<listitem><formalpara><title>The board image</title>
+	<para>Create or copy your game board's 'image from internet. Put in on your game's directory and call it ludoboard1.png. </para>
+	
+	<para>For our ludo we will use the following image:</para>
+	
+	<informalfigure>
+	    <mediaobject>        
+	      <imageobject>
+	        <imagedata fileref="../examples/ludo/ludoboard1.png" format="png"/>
+	      </imageobject>
+	      <textobject><phrase>Our ludo game's board image</phrase>
+	      </textobject>
+	    </mediaobject>
+	</informalfigure>
+  
+  
+	</formalpara></listitem>
+	
+	<listitem><formalpara><title>Define the game in a text file</title>
+	<para>The last and more important step is 
+	to define all of our game's elements in a the game definition text file. For this, first create a file called data.js and open 
+	it with your favourite plain text editor	
+	<footnote><para>In windows, you must use a plain text editor like notepad, and not ms word. Also, in be sure the file 
+	is called data.js and not something like data.js.txt</para></footnote>.
+	</para>
+	<para>For our first version of the ludo game, this will be the file contents:</para>
+	
+	<programlisting>
+triviadata={
+    gameName: "the Ludo game",
+	
+	boardImage: "ludoboard1.png",
+	boardSize: "640,640",
+	
+	pieces: [
+         {name: "red piece", code: "circle(10, 10, 10, 10)", 
+        	 size: "20,20", color: "#ff0000"},
+        	 
+         {name: "blue piece", code: "circle(10, 10, 10, 10)", 
+        	 size: "50,20", color: "#0000ff"},
+        	 
+         {name: "green piece", code: "circle(10, 20, 10, 10)", 
+        	 size: "20,20", color: "#00ff00"},
+        	 
+         {name: "green piece", code: "circle(10, 20, 10, 10)", 
+        	 size: "20,20", color: "#00ff00"}  
+    ]
+}
+	</programlisting>  
+	<para>The file contents must be a valid javascript - json object string. </para>
+	
+	<para>Let's introduce the data.js file and explain what 's inside briefly.</para>
+	
+	<para>First of all the game definition file is defined using the programming language json. 
+	It is recommended but not mandatory that the user is familiarized with it: http://json.org/</para>
+	
+	<para>As you can see, there are some properties defined as gameName, boardImage, 
+	boardSize and pieces. boardGame indicates what this game is called ("ludo"), and boardImage indicated the image file that will be used
+	as game's board ("ludoboard1.png"). </para>
+	
+	<para>The more complex one is pieces. Remember we said the game ludo
+	 consist in 4 pieces of color red, green, blue and yellow. So the "pieces" property is telling just that. The following 
+	 code defines a single game piece (circular piece of size 20 x 20 pixel and color red-#ff0000): </para>
+	 
+	 <programlisting>
+	 {name: "red piece", code: "circle(10, 10, 10, 10)", 
+	  	 size: "20,20", color: "#ff0000"},
+	 </programlisting>
+	
+	</formalpara></listitem>
+	
+	
+	<listitem><formalpara><title>Ludo is ready</title>
+	<para>If there are no errors in the data.js file we are ready. Simply open the file index.html with 
+	your web browser and the game will start. and show something like this: </para>
+	
+	<informalfigure>
+	    <mediaobject>        
+	      <imageobject>
+	        <imagedata fileref="imgs/ludogame1.png" format="png"/>
+	      </imageobject>
+	      <textobject><phrase>Our ludo game first screen</phrase>
+	      </textobject>
+	    </mediaobject>
+	</informalfigure>
+	
+	</formalpara></listitem>
+	
+	
+	<listitem><formalpara><title>Now create the pieces and play</title>	
+	
+	<para>In our ludo game, before playing the players must create the necesary pieces. Asuming 
+	will be 4 players, we create 4 pieces of each colors red, blue, green and yellow and move them in the board
+	to their initial positions. For moving the pieces, just add them and then drag them with the mouse to desired board position. 
+	We perform this using the "Add Piece" tool at the left top corner: </para>
+	
+	<informalfigure>
+	    <mediaobject>        
+	      <imageobject>
+	        <imagedata fileref="imgs/ludogame2.png" format="png"/>
+	      </imageobject>
+	      <textobject><phrase>Our ludo screen after we added four pieces of each color</phrase>
+	      </textobject>
+	    </mediaobject>
+	</informalfigure>
+	
+	</formalpara>
+	</listitem>
+	
+	<para>After all pieces are added to the board, the four players are ready to start playing. Roll the dices with 
+	the button "Roll dices". </para>
+	
+	</itemizedlist>
+	
+	
+  	
+  	</section>
+	
+step 3) If the data is valid, your trivia is ready!! Simply open generatrivia.html in your browser for start playing.
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  <section>
+  <title>Built in game tools</title>
+  <para>The game is structered in the board, the pieces, and tools. Tools can be of several types: </para>
+  
+  	<itemizedlist>
+	<listitem><para>a game related activity tool like the dices tool, or the question and answer tool. </para></listitem>
+	<listitem><para>a game developemnt heloper tool, like the piece position tool</para></listitem>
+	<listitem><para>any user defined tool...</para></listitem>
+	</itemizedlist>
+	
+	<para>This section will teach you 1) give detailed information about using each built-in tool and 
+	2) teach you how to program your own tools using the javascript framework's api. </para>
+  
+  
+  
+  
+  <section><title>Pieces tool</title>
+  <para></para>
+  </section>
+  
+  
+  
+  <section><title>Dices tool</title>
+  <para></para>
+  </section>
+  
+  
+  
+  <section><title>Questions and answers tool</title>
+  <para></para>
+  </section>
+  
+  
+  
+   <section><title>Pieces position tool</title>
+   
+  <para>This tool is usefull when defining games that consists in several pieces with defined positions in the board, 
+  like chess and checkers. With this tool, you can add all the games pieces manually using the pieces tool, each piece 
+  with the correct size, color and position, and then clicking the button. When you are ready, press the tool's button 
+  "get pieces porcentual info", and it will return all the "addPieces" code for data.js, so you only have to copy and 
+  paste it, for your game to show the initial pieces in the board.</para>
+  
+  </section>
+  
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  <section><title>Building custum tools</title>
+  <para>In this section we will show you how to build your own custom tools with an example. It is required to know the 
+  basis of javascript and html languages. </para>
+  
+  <para>A tool consists on the following elements: 1) some user interface like input widgets like buttons, text entries, etc. 
+  that the player uses for controlling the tool. 2) some logic that do something related to the game. 3) some configuration in 
+  data.js for the specific tool</para>
+  
+  <para>For example, the dices tool, consists on a button and text entry to 
+  controlling the tool (roll dices button and a text for showing the dice result). It has no logic related to the game. 
+  It can be configured using the "dices" property in data.js</para>
+  
+  <para>We will define an abstract tool</para>
+  
+  <programlisting>
+
+/* a cutom tool (plugin) example : mouseCoords */
+gt.tools.mouseCoords = {
+                        
+name: "mouseCoords",
+
+description: "a tool that shows absolute and percentual position "+
+	"of a point in the board on mouse click",
+
+/**this method will be called by the frameowork for loading the tool, 
+ * In this method the tools should create the markup in the
+ * parent, register event listeners, etc. 
+ * the tool shoud *append* a new element to the parrent.
+ *  	
+ * @param parentEl - is a dom object or an id or jquery selector for this 
+ * tool dom parent */		
+init : function(parentEl) {
+	 //create an check box that will be our only tool control. 
+	$(parentEl).append("&lt;input type=\"checkbox\" id=\"mouse-coords-tool-button\">get click board coords&lt;/input>");
+	//add a mouse click listener in the paper
+	$("#trivia-paper").click(gt.tools.mouseCoords._mouseCoordsMouseHandler);
+},
+
+
+/** this function indicates if this tool shoud be showed according to a game's data. 
+ * This method will be called at least one, so this way the tool can define custom 
+ * game's configuration for indicating if tool should be enabled, or passing other data. */
+isEnabled : function(data) {
+	return data.mouseCoordsToolEnabled;
+},
+/** internal mouse click handler */
+_mouseCoordsMouseHandler : function(e) {
+	//if the checkbox is checked, then show click's  coordinates
+	if($("#mouse-coords-tool-button:checked").size()>0) {
+		var pos = gt.getPositionFromEvent(e), 
+			posPercent = gt.getPointPercent(pos);
+		var s = "Click position in the board:\n"+
+			"absolute: "+pos[0]+","+pos[1]+"\n"+
+			"percentual: "+posPercent[0]+"%,"+posPercent[1]+"%";
+		alert(s);
+	}		
+}	
+		
+};
+  </programlisting>
+  
+  
+  <para>
+  Generatrivia is made using html, javascript, css and these main javascript libraries: 
+  1) jquery.com for general javascript toolkit, 
+  2) jqueryui.com for general gui, 
+  3) raphaeljs.com for drawing and graphics.
+  
+  </para>
+  
+  <para>So when developing your own tools, you can use any of these toolkits for accomplish your purposes. </para>
+  
+  <note><para>Generatrivia framework api will be detailed in the following section. </para></note>
+  </section>
+  
+  
+  
+  
+  <section><title>Generatrivia framework api</title>
+  
+  <para>When writing your own generatrivia tools, it is useful to be familiarized with the 
+  api of the framework.  </para>
+  
+  
+<section><title>gt.initGame()</title>
+<para>The main method for creating a game. It must be called from the html document
+for starting the game. If you are writing your own html, 
+make sure all necesary game scripts and css are loaded before starting the game, using jquery ready() function like this: </para>
+<programlisting>
+&lt;script>
+$(document).ready(function(){
+	gt.initGame();
+});
+&lt;/script>
+</programlisting>
+
+<para>gt.initGame() can be called with a configuration object parameter. This object can 
+override game definition configuration in data.js. In fact an entire game definition 
+object can be passed as parameter. It also accepts the property "gameParentElement" that can 
+contains a reference to an html element that will contains the game inside.</para>
+</section>
+  </section>
+  
+  
+  <section><title>Interesting usage scenarios</title>
+  
+  <section><title>Teaching</title>
+  <para>Trivia game can be used by (high)school teachers for knowledge review, 
+  for example the class before an exam. For example, a philosofy teacher, can perform a trivia with questions of different studied topics like epistemology, logic, ethics. Optionally the teacher want's 
+its trivia to contain a nice famous painting as board background. Generatrivia 
+is an excelent tool for this because the teacher only has to focus on its 
+questions and answers and generatrivia will do the game work. It is up to the teacher
+to spend time decorating the board with its own image. Also the rules of the game are defined in the classroom.
+  </para>
+  </section>
+
+	<section><title>Defining and making your own board games</title>
+  <para>... </para>
+  </section>
+  
+
+  </section>
+</article>

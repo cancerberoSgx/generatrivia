@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--@author: sgurin -->
+    <head>
+        <meta charset="utf-8">
+        <title>generatrivia: trivia game generator for the web</title>
+        <meta name="author" content="Sebastián Gurin">
+        <meta name="description" content="generatrivia: trivia game generator for the web">
+        <meta name="keywords" content="generatrivia, trivia web generator, trivia javascript framework">
+        <meta name="viewport" content="width=450">
+		<link rel="stylesheet" href="../../src/generatrivia.css">
+        <link rel="shortcut icon" href="../../src/images/logo16.png" type="image/x-icon">
+        
+        
+             
+        <script src="../../src/js/jquery-1.6.4.min.js"></script>        
+        <script src="../../src/js/raphael-min.js"></script>
+        
+        <script src="data.js"></script>   
+        <script src="../../src/generatrivia.js"></script>
+        <script src="../../src/langtools.js"></script>
+        <link rel="stylesheet" href="../../src/generatrivia.css" type="text/css" />        
+        
+        <!--jquery utiles: colorchooser, panel-->
+        <script type="text/javascript" src="../../src/js/jscolor/jscolor.js"></script>
+        <script type="text/javascript" src="../../src/js/jquery-ui-1.8.16.custom.min.js"></script>
+        <link rel="stylesheet" href="../../src/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" />   
+        
+        
+    </head>
+    <body>
+    
+    
+    
+<table class="main-table">
+<tr>
+
+<td width="20%" id="tools-container">	
+</td>
+
+<td width="80%">
+	<div id="trivia-paper"></div>
+</td>
+
+
+</tr>
+</table>
+
+
+<script>
+// a
+$(document).ready(function(){
+	gt.initGame();
+});
+</script>
+
+</body>
+</html>
