@@ -1,3 +1,4 @@
+
 triviadata={
     baseUrl: "../../src/",
     gameName: "a chess",
@@ -79,11 +80,10 @@ triviadata={
 		 
 		 /** deal 4 cards */
 		 deal : [
-		    {amount: 1, position: "20,20", turned: false, horizontal: true}, 
-		  	{amount: 1, position: "20,20", turned: false},
-		  	{amount: 1, position: "20,100", turned: false},
-		  	{amount: 1, position: "20,200", turned: false},
-		    {amount: 1, position: "20,300", turned: false}
+		  	{amount: 1, position: "440,440", turned: true},
+		  	{amount: 1, position: "445,445", turned: true},
+		  	{amount: 1, position: "450,450", turned: true},
+		    {amount: 1, position: "455,455", turned: false}
 		 ],
 
 		 /** this array size define how many cards are getted out the deck 

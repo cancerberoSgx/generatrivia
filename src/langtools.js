@@ -42,7 +42,11 @@ var langUtil = {
 		}); 
 	},
 	 
-	/**javascript and css loader
+	/**loades a javascript file or css stylesheet in current document. 
+	 *  Usage Examples:
+	 * @param name : the url of the resource to load. I think there is no cross site problems here.
+	 * @param type : "js" or "css". if "js" then a new javascript script will be loaded
+	 * @param listener an optional function that will be called when loading of the resource is ready. 
 	 * @author: sgurin
 	 */
 	_loadF : function(name, type, listener){

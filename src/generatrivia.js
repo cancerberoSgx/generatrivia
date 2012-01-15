@@ -200,12 +200,22 @@ var gt = {
 		}
 		return o1;
 	},
+	/**
+	 * @param s - a string of the form "22px" or "22px,22%". all css units accepted
+	 * @param boardW - optional - width of the board
+	 * @param boardH - optional - height of the board
+	 * @return - an array of 2 integers that correspond to absolute mesures in pixels
+	 * of given string according to board dims.
+	 */
 	extractMeasures : function(s, boardW, boardH) {	
 		boardW=boardW?boardW:gt.data.boardWidth;
 		boardH=boardH?boardH:gt.data.boardHeight;
 		if(!s) return [-1,-1];
 		try {
-			var a = s.split(","), x_ = a[0], y_ = a[1], x=0, y=0, 
+			var a = s.split(",")
+			if(a!=null&&a.length==1)
+				a=[a,a];
+			var x_ = a[0], y_ = a[1], x=0, y=0, 
 				xIsPercent=false, yIsPercent=false;
 			if(a.length!=2)
 				return [0,0];
@@ -819,8 +829,7 @@ var gt_tools_cards = {
 			var bbox = card.getBBox();
 //			alert(bbox.x+", "+bbox.y+", "+bbox.width+", "+bbox.height);
 			card.show();
-		}
-		
+		}		
 	},
 	doGetCards : function(){
 		alert("do get cards")
