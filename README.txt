@@ -2,6 +2,11 @@
 
 Generatrivia: define and publish your trivia game in the web.
 
+!!!!
+See a list of game examples generated at 
+http://cancerbero.vacau.com/generatrivia/examples/  
+!!!! 
+  
 Generatrivia is a html and javascript based application to define and generate trivia like games in web pages. The user must input the trivia board image, define trivia categories and trivia questions and answers, and generatrivia will execute the game in a web page.
 
 So this sofware can be defined also as a trivia designer for the web.
